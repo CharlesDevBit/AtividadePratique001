@@ -19,10 +19,6 @@ public class CadastroDeEvento {
     }
     private static Categoria categoriaDoEvento;
 
-    public static void main(String[] args) {
-        CadastrarEvento();
-    }
-
     public static void CadastrarEvento() {
         Scanner scanner = new Scanner(System.in);
 
@@ -49,7 +45,7 @@ public class CadastroDeEvento {
             try {
                 dataDoEvento = formatter.parse(data);
             } catch (ParseException e) {
-                throw new RuntimeException(e);
+                System.out.println("Data inválida!");
             }
         }while (data.length() != 10);
 
@@ -61,7 +57,7 @@ public class CadastroDeEvento {
             try {
                 horarioDoEvento = formatter.parse(horario);
             } catch (ParseException e) {
-                throw new RuntimeException(e);
+                System.out.println("Hora inválida!");
             }
         }while (horario.length() != 5);
 
