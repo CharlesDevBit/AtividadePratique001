@@ -6,7 +6,20 @@ public class CadastroDeUsuario {
     private static int idadeDoUsuario;
     private static char sexoDoUsuario;
 
-    public static void CadastrarUsuario() {
+    public static class Usuario {
+        public String nome;
+        public int idade;
+        public char sexo;
+
+        public Usuario (String nome, int idade, char sexo)
+        {
+            this.nome = nome;
+            this.idade = idade;
+            this.sexo = sexo;
+        }
+    }
+
+    public static Usuario CadastrarUsuario() {
         Scanner scanner = new Scanner(System.in);
 
         do {
@@ -27,5 +40,7 @@ public class CadastroDeUsuario {
                 throw new RuntimeException(e);
             }
         }while (sexoDoUsuario != 'M' && sexoDoUsuario != 'F');
+
+        return new Usuario(nomeDoUsuario, idadeDoUsuario, sexoDoUsuario);
     }
 }
