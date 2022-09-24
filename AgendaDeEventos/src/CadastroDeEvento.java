@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,7 +20,26 @@ public class CadastroDeEvento {
     }
     private static Categoria categoriaDoEvento;
 
-    public static void CadastrarEvento() {
+    public static class Evento {
+        public String nome;
+        public String descrição;
+        public String endereço;
+        public Date data;
+        public Date horario;
+        public Categoria categoria;
+
+        public Evento (String nome, String descrição, String endereço, Date data, Date horario, Categoria categoria)
+        {
+            this.nome = nome;
+            this.descrição = descrição;
+            this.endereço = endereço;
+            this.data = data;
+            this.horario = horario;
+            this.categoria = categoria;
+        }
+    }
+
+    public static Evento CadastrarEvento() {
         Scanner scanner = new Scanner(System.in);
 
         do{
@@ -81,5 +101,7 @@ public class CadastroDeEvento {
                     break;
             }
         }while (categoria > 6 && categoria < 1);
+
+        return new Evento(nomeDoEvento, descriçãoDoEvento, endereçoDoEvento, dataDoEvento, horarioDoEvento, categoriaDoEvento);
     }
 }

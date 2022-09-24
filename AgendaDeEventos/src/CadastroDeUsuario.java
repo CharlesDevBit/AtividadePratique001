@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CadastroDeUsuario {
@@ -10,6 +12,7 @@ public class CadastroDeUsuario {
         public String nome;
         public int idade;
         public char sexo;
+        public static List<CadastroDeEvento.Evento> eventosDoUsuario = new ArrayList();
 
         public Usuario (String nome, int idade, char sexo)
         {
